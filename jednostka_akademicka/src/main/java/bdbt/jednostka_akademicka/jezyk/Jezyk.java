@@ -1,8 +1,16 @@
 package bdbt.jednostka_akademicka.jezyk;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 public class Jezyk {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String kodJezyka;
     private String nazwa;
 
