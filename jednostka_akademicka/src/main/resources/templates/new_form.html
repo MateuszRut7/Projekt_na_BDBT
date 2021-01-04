@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowa uczelnia</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nową uczelnie</h1>
+
+    <!-- End line/ new line -->
+    <br />
+
+    <form action = "#" th:action="@{/save}" th:object="${uczelnia}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table first  row -->
+            <tr>
+                <td>Nazwa</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+            </tr>
+            <!-- Second  row -->
+            <tr>
+                <td>Typ Uczelni</td>
+                <td><input type="text" th:field="*{typUczelni}"></td>
+            </tr>
+            <!-- Third  row -->
+            <tr>
+                <td>Rodzaj</td>
+                <td><input type="text" th:field="*{rodzaj}"></td>
+            </tr>
+            <!-- Fourth  row -->
+            <tr>
+                <td>Numer Adresu</td>
+                <td><input type="text" th:field="*{nrAdresu}"></td>
+            </tr>
+
+            <!-- Button save-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Save</button> </td>
+            </tr>
+            <!-- Table body -->
+
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
