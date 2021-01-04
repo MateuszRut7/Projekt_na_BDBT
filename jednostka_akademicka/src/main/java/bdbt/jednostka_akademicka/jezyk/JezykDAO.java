@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 @Repository
+@Transactional
 public class JezykDAO {
 
     @Autowired
@@ -33,7 +35,6 @@ public class JezykDAO {
         List<Jezyk> ListaJezykow = jdbcTemplate
                 .query(sql, BeanPropertyRowMapper.newInstance(Jezyk.class));
 
-        System.out.println("     " + ListaJezykow.size());
         return ListaJezykow;
     }
 
@@ -45,18 +46,18 @@ public class JezykDAO {
     }
 
 
-    public Jezyk get(int id) {
+    public Jezyk get(int nrJezyka) {
         String sql = "SELECT * FROM JEZYKI WHERE NR_JEZYKA = ?";
-        Object[] args = {id};
-        Jezyk sale = jdbcTemplate.queryForObject(sql, args,
+        Object[] args = {nrJezyka};
+        Jezyk jezyk = jdbcTemplate.queryForObject(sql, args,
                 BeanPropertyRowMapper.newInstance(Jezyk.class));
-        return sale;
+        return jezyk;
     }
 
 
 
     public void update(Jezyk jezyk) {
-        String sql = "UPDATE JEZYKI SET KOD_JEZYKA=:kodJezyka, NAZWA=:nazwa WHERE NR_JEZYKA=:id";
+        String sql = "UPDATE JEZYKI SET KOD_JEZYKA=:kodJezyka, NAZWA=:nazwa WHERE NR_JEZYKA=:nrJezyka";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(jezyk);
 
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);

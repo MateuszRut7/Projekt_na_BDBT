@@ -1,16 +1,20 @@
 package bdbt.jednostka_akademicka.uczelnia;
 
+import bdbt.jednostka_akademicka.jezyk.Jezyk;
 import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
+@Transactional
 public class UczelniaDAO {
 
 
@@ -32,22 +36,33 @@ public class UczelniaDAO {
 
     public void save(Uczelnia uczelnia){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("UCZELNIE").usingColumns("Nazwa","Typ_uczelni","Rodzaj","Nr_adresu");
+        insertActor.withTableName("uczelnie").usingColumns("Nazwa","Typ_uczelni","Rodzaj","Nr_adresu");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczelnia);
         insertActor.execute(param);
     }
-    
-    public Uczelnia get(int id){
-        return null;
+
+    public Uczelnia get(int nrUczelni) {
+        String sql = "SELECT * FROM UCZELNIE WHERE NR_UCZELNI = ?";
+        Object[] args = {nrUczelni};
+        Uczelnia uczelnia = jdbcTemplate.queryForObject(sql, args,
+                BeanPropertyRowMapper.newInstance(Uczelnia.class));
+        return uczelnia;
     }
 
-    public void update (Uczelnia uczelnie){
 
+
+    public void update(Uczelnia uczelnia) {
+        String sql = "UPDATE UCZELNIE SET NAZWA=:nazwa, TYP_UCZELNI=:typUczelni, RODZAJ=:rodzaj, NR_ADRESU=:nrAdresu WHERE NR_UCZELNI=:nrUczelni";
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(uczelnia);
+
+        NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+        template.update(sql, param);
     }
 
-    public void delete (int id){
-
+    public void delete(int id) {
+        String sql = "DELETE FROM UCZELNIE WHERE  NR_UCZELNI = ?";
+        jdbcTemplate.update(sql, id);
     }
 
 }

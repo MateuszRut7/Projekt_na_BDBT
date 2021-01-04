@@ -1,15 +1,10 @@
 package bdbt.jednostka_akademicka.jezyk;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 public class Jezyk {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+
+
+    private int nrJezyka;
 
     private String kodJezyka;
     private String nazwa;
@@ -17,18 +12,17 @@ public class Jezyk {
     public Jezyk() {
     }
 
-    public Jezyk(int id, String kodJezyka, String nazwa) {
-        this.id = id;
+    public Jezyk(String kodJezyka, String nazwa) {
         this.kodJezyka = kodJezyka;
         this.nazwa = nazwa;
     }
 
-    public int getId() {
-        return id;
+    public int getNrJezyka() {
+        return nrJezyka;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNrJezyka(int nrJezyka) {
+        this.nrJezyka = nrJezyka;
     }
 
     public String getKodJezyka() {
@@ -50,7 +44,7 @@ public class Jezyk {
     @Override
     public String toString() {
         return "Jezyk{" +
-                "id=" + id +
+                "id=" + nrJezyka +
                 ", kodJezyka='" + kodJezyka + '\'' +
                 ", nazwa='" + nazwa + '\'' +
                 '}';

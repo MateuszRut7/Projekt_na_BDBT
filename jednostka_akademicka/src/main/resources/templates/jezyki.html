@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Uczelnie</title>
@@ -20,7 +20,7 @@
         <!-- Table head -->
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Nr Jezyka</th>
             <th>Kod jezyka</th>
             <th>Nazwa</th>
             <th>Akcje</th>
@@ -30,13 +30,13 @@
         <!-- Table body -->
         <tbody>
         <tr th:each = "jezyk: ${ListaJezykow}">
-            <td th:text="${jezyk.id}">ID</td>
+            <td th:text="${jezyk.nrJezyka}">Nr Jezyka</td>
             <td th:text="${jezyk.kodJezyka}">Kod Jezyka</td>
-            <td th:text="${jezyk.Nazwa}">Nazwa</td>
+            <td th:text="${jezyk.nazwa}">Nazwa</td>
             <td>
-                <a th:href="@{'/edit/' + ${jezyk.id}}">Edit</a>
-                &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${jezyk.id}}">Delete</a>
+                <a th:href="@{'/edit/' + ${jezyk.nrJezyka}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${jezyk.nrJezyka}}">Delete</a>
             </td>
         </tr>
         </tbody>

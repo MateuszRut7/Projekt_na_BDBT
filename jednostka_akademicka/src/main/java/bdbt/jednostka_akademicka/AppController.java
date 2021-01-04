@@ -61,19 +61,27 @@ public class AppController {
         return "/nowy-jezyk";
     }
 
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditForm(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("edit_form");
-        Jezyk jezyk = jezykDAO.get(id);
+    @RequestMapping("/edit/{nrJezyka}")
+    public ModelAndView showEditForm(@PathVariable(name = "nrJezyka") int nrJezyka) {
+        ModelAndView mav = new ModelAndView("edytuj-jezyk");
+        Jezyk jezyk = jezykDAO.get(nrJezyka);
         mav.addObject("jezyk", jezyk);
 
         return mav;
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(@ModelAttribute("jezyk") Jezyk jezyk) {
+        jezykDAO.update(jezyk);
+
+        // do poprawki
+        return "jezyki";
+    }
+
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable(name = "id") int id) {
         jezykDAO.delete(id);
-        return "redirect:/";
+        return "jezyki";
     }
 
 }

@@ -7,9 +7,7 @@ import javax.persistence.GenerationType;
 
 public class Uczelnia {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int nrUczelni;
 
     private String nazwa;
     private String typUczelni;
@@ -19,21 +17,21 @@ public class Uczelnia {
     public Uczelnia() {
     }
 
-    public Uczelnia(int id, String nazwa, String typUczelni, String rodzaj, int nrAdresu) {
+    public Uczelnia(int nrUczelni, String nazwa, String typUczelni, String rodzaj, int nrAdresu) {
         super();
-        this.id = id;
+        this.nrUczelni = nrUczelni;
         this.nazwa = nazwa;
         this.typUczelni = typUczelni;
         this.rodzaj = rodzaj;
         this.nrAdresu = nrAdresu;
     }
 
-    public int getId() {
-        return id;
+    public int getNrUczelni() {
+        return nrUczelni;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNrUczelni(int nrUczelni) {
+        this.nrUczelni = nrUczelni;
     }
 
     public String getNazwa() {
@@ -71,7 +69,7 @@ public class Uczelnia {
     @Override
     public String toString() {
         return "Uczelnie{" +
-                "id=" + id +
+                "id=" + nrUczelni +
                 ", nazwa='" + nazwa + '\'' +
                 ", typUczelni='" + typUczelni + '\'' +
                 ", rodzaj='" + rodzaj + '\'' +

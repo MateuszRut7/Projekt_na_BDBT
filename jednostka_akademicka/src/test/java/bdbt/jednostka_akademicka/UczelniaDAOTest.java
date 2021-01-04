@@ -12,7 +12,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.util.List;
 
-import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
@@ -53,7 +52,7 @@ public class UczelniaDAOTest {
 
     @Test
     void testSave2(){
-        Jezyk jezyk = new Jezyk(5,"0","Jezyk");
+        Jezyk jezyk = new Jezyk("0","Jezyk");
         dao2.save(jezyk);
     }
 
@@ -62,12 +61,12 @@ public class UczelniaDAOTest {
 
     @Test
     void testGet2(){
-         dao2.get(0);
+         dao2.get(15);
     }
 
     @Test
     void testUpdate(){
-        Jezyk jezyk = new Jezyk(1,"01","Jezyk");;
+        Jezyk jezyk = new Jezyk("01","Jezyk");;
         dao2.update(jezyk);
     }
 
