@@ -1,4 +1,4 @@
-package bdbt.jednostka_akademicka.jezyki;
+package bdbt.jednostka_akademicka.jezyk;
 
 public class Jezyk {
 

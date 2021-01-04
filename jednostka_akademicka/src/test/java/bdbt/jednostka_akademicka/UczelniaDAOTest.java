@@ -1,5 +1,7 @@
 package bdbt.jednostka_akademicka;
 
+import bdbt.jednostka_akademicka.jezyk.Jezyk;
+import bdbt.jednostka_akademicka.jezyk.JezykDAO;
 import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
 import bdbt.jednostka_akademicka.uczelnia.UczelniaDAO;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class UczelniaDAOTest {
 
-    private UczelniaDAO dao;
+    private UczelniaDAO dao1;
+    private JezykDAO dao2;
     @BeforeEach
     void setUp() throws Exception{
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -25,20 +28,37 @@ public class UczelniaDAOTest {
         dataSource.setPassword("mrutkow4");
         dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 
-        dao = new UczelniaDAO(new JdbcTemplate(dataSource));
+        dao1 = new UczelniaDAO(new JdbcTemplate(dataSource));
+        dao2 = new JezykDAO(new JdbcTemplate(dataSource));
     }
 
     @Test
     void testList(){
-        List<Uczelnia> listaUczelni = dao.list();
+        List<Uczelnia> listaUczelni = dao1.list();
         assertTrue(listaUczelni.isEmpty());
+    }
+
+    @Test
+    void testList2(){
+        List<Jezyk> listajezykow = dao2.list();
+        assertTrue(!listajezykow.isEmpty());
     }
 
     @Test
     void testSave(){
         Uczelnia uczelnia = new Uczelnia(0,"Nazwa","Politechnika","Prywatna",0);
-        dao.save(uczelnia);
+        dao1.save(uczelnia);
     }
+
+    /* dziala
+    @Test
+    void testSave2(){
+        Jezyk jezyk = new Jezyk(0,"00","Jezyk");
+        dao2.save(jezyk);
+    }
+
+    */
+
 
     @Test
     void testGet(){

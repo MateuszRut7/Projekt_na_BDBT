@@ -1,5 +1,6 @@
-package bdbt.jednostka_akademicka.jezyki;
+package bdbt.jednostka_akademicka.jezyk;
 
+import bdbt.jednostka_akademicka.jezyk.Jezyk;
 import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -33,7 +34,6 @@ public class JezykDAO {
     public void save(Jezyk jezyk){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("JEZYKI").usingColumns("Kod_jezyka","Nazwa");
-
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(jezyk);
         insertActor.execute(param);
     }
