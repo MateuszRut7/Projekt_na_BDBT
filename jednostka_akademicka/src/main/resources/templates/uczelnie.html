@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uczelnie</title>
+</head>
+
+<body>
+    <div align="center">
+        <!-- Page header -->
+        <h1>Uczelnie</h1>
+
+        <!-- Enter to a new page -->
+        <a href = "/nowa-uczelnia">Dodaj nową uczelnie</a>
+
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table head -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazwa</th>
+                    <th>Typ uczelni</th>
+                    <th>Rodzaj</th>
+                    <th>Numer adresu</th>
+                </tr>
+            </thead>
+
+            <!-- Table body -->
+            <tbody>
+                <tr th:each = "uczelnia: ${ListaUczelni}">
+                    <td th:text="${uczelnia.id}">ID</td>
+                    <td th:text="${uczelnia.nazwa}">Nazwa</td>
+                    <td th:text="${uczelnia.typUczelni}">Typ uczelni</td>
+                    <td th:text="${uczelnia.rodzaj}">Rodzaj</td>
+                    <td th:text="${uczelnia.nrAdresu}">Numer adresu</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+</html>
