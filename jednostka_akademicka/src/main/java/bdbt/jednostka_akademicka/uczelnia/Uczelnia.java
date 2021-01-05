@@ -1,9 +1,6 @@
 package bdbt.jednostka_akademicka.uczelnia;
 
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 public class Uczelnia {
 
@@ -55,7 +52,7 @@ public class Uczelnia {
     }
 
     public void setRodzaj(String rodzaj) {
-        rodzaj = rodzaj;
+        this.rodzaj = rodzaj;
     }
 
     public int getNrAdresu() {

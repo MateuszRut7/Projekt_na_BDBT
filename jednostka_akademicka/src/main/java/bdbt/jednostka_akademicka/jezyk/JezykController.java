@@ -1,9 +1,5 @@
-/*package bdbt.jednostka_akademicka;
+package bdbt.jednostka_akademicka.jezyk;
 
-import bdbt.jednostka_akademicka.jezyk.Jezyk;
-import bdbt.jednostka_akademicka.jezyk.JezykDAO;
-import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
-import bdbt.jednostka_akademicka.uczelnia.UczelniaDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,35 +12,21 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class AppController {
+@RequestMapping("/jezyki")
+public class JezykController{
 
-    @Autowired
-    private UczelniaDAO uczDAO;
 
     @Autowired
     private JezykDAO jezykDAO;
 
-    @RequestMapping("/uczelnie")
-    public String pokazUczelnie(Model model){
-        List<Uczelnia> ListaUczelni = uczDAO.list();
-        model.addAttribute("ListaUczelni", ListaUczelni );
-        return "uczelnie";
 
-    }
 
-    @RequestMapping("/jezyki")
+    @RequestMapping("/")
     public String pokazJezyki(Model model){
         List<Jezyk> ListaJezykow = jezykDAO.list();
         model.addAttribute("ListaJezykow", ListaJezykow );
         return "jezyki";
 
-    }
-
-    @RequestMapping("/nowa-uczelnia")
-    public String showNewForm(Model model){
-        Uczelnia uczelnie = new Uczelnia();
-        model.addAttribute("uczelnie",uczelnie);
-        return "nowa-uczelnia";
     }
 
     @RequestMapping("/nowy-jezyk")
@@ -85,6 +67,3 @@ public class AppController {
     }
 
 }
-
-
- */

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Nowa uczelnia</title>
@@ -14,14 +13,14 @@
     <!-- End line/ new line -->
     <br />
 
-    <form action = "#" th:action="@{/save}" th:object="${uczelnie}" method="post">
+    <form action = "#" th:action="@{/uczelnie/save}" th:object="${uczelnie}" method="post">
         <!-- Table -->
         <table border="1" cellpadding="10">
 
             <!-- Table first  row -->
             <tr>
                 <td>Nazwa</td>
-                <td><input type="text" th:field="*{Nazwa}"></td>
+                <td><input type="text" th:field="*{nazwa}"></td>
             </tr>
             <!-- Second  row -->
             <tr>

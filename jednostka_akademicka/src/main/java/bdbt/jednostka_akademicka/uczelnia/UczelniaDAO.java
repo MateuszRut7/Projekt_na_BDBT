@@ -1,7 +1,6 @@
 package bdbt.jednostka_akademicka.uczelnia;
 
-import bdbt.jednostka_akademicka.jezyk.Jezyk;
-import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

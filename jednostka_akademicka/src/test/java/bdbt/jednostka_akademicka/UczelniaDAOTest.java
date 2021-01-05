@@ -34,18 +34,18 @@ public class UczelniaDAOTest {
     @Test
     void testList(){
         List<Uczelnia> listaUczelni = dao1.list();
-        assertTrue(listaUczelni.isEmpty());
+        assertTrue(!listaUczelni.isEmpty());
     }
 
     @Test
     void testList2(){
         List<Jezyk> listajezykow = dao2.list();
-        assertTrue(listajezykow.isEmpty());
+        assertTrue(!listajezykow.isEmpty());
     }
 
     @Test
     void testSave(){
-        Uczelnia uczelnia = new Uczelnia(5,"Nazwa","Politechnika","Prywatna",0);
+        Uczelnia uczelnia = new Uczelnia(1,"Szkoła Wyższa Ekonomii i Zarządzania w Łodzi","Ekonomiczna","Prywatna",4);
         dao1.save(uczelnia);
     }
 
@@ -61,14 +61,9 @@ public class UczelniaDAOTest {
 
     @Test
     void testGet2(){
-         dao2.get(15);
+         dao2.get(19);
     }
 
-    @Test
-    void testUpdate(){
-        Jezyk jezyk = new Jezyk("01","Jezyk");;
-        dao2.update(jezyk);
-    }
 
     @Test
     void testDelete(){

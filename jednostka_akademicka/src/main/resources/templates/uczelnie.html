@@ -12,7 +12,7 @@
         <h1>Uczelnie</h1>
 
         <!-- Enter to a new page -->
-        <a href = "/nowa-uczelnia">Dodaj nową uczelnie</a>
+        <a href = "/uczelnie/nowa-uczelnia">Dodaj nową uczelnie</a>
 
         <!-- Table -->
         <table border="1" cellpadding="10">
@@ -38,9 +38,9 @@
                     <td th:text="${uczelnia.rodzaj}">Rodzaj</td>
                     <td th:text="${uczelnia.nrAdresu}">Numer adresu</td>
                     <td>
-                        <a th:href="/@{'/edit/' + ${uczelnia.id}}">Edit</a>
+                        <a th:href="@{'/uczelnie/edit/' + ${uczelnia.nrUczelni}}">Edit</a>
                         &nbsp;&nbsp;&nbsp;
-                        <a th:href="/@{'/delete/' + ${uczelnia.id}}">Delete</a>
+                        <a th:href="@{'/uczelnie/delete/' + ${uczelnia.nrUczelni}}">Delete</a>
                     </td>
                 </tr>
             </tbody>

@@ -1,7 +1,6 @@
 package bdbt.jednostka_akademicka.jezyk;
 
-import bdbt.jednostka_akademicka.jezyk.Jezyk;
-import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,12 +9,10 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+
 
 @Repository
 @Transactional
