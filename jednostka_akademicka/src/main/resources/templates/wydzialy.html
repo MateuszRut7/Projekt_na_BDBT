@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wydzialy</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Wydzialy</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/wydzialy/nowy-wydzial">Dodaj nowy wydzial</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Numer uczelni</th>
+            <th>Numer adresu</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "wydzial: ${ListaWydzialow}">
+            <td th:text="${wydzial.nrWydzialu}">ID</td>
+            <td th:text="${wydzial.nazwa}">Nazwa</td>
+            <td th:text="${wydzial.nrUczelni}">Numer uczelni</td>>
+            <td th:text="${wydzial.nrAdresu}">Numer adresu</td>
+            <td>
+                <a th:href="@{'/wydzialy/edit/' + ${wydzialy.nrWydzialu}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/wydzialy/delete/' + ${wydzialy.nrWydzialu}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
