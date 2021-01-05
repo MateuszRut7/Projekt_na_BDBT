@@ -1,4 +1,8 @@
-/*package bdbt.jednostka_akademicka;
+/*
+
+
+
+package bdbt.jednostka_akademicka;
 
 import bdbt.jednostka_akademicka.jezyk.Jezyk;
 import bdbt.jednostka_akademicka.jezyk.JezykDAO;

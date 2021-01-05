@@ -35,9 +35,9 @@
             <td th:text="${wydzial.nrUczelni}">Numer uczelni</td>>
             <td th:text="${wydzial.nrAdresu}">Numer adresu</td>
             <td>
-                <a th:href="@{'/wydzialy/edit/' + ${wydzialy.nrWydzialu}}">Edit</a>
+                <a th:href="@{'/wydzialy/edit/' + ${wydzial.nrWydzialu}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/wydzialy/delete/' + ${wydzialy.nrWydzialu}}">Delete</a>
+                <a th:href="@{'/wydzialy/delete/' + ${wydzial.nrWydzialu}}">Delete</a>
             </td>
         </tr>
         </tbody>
