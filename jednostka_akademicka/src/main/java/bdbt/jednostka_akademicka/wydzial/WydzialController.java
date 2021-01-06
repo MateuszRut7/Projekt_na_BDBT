@@ -57,7 +57,7 @@ public class WydzialController{
         wydzialDAO.update(wydzial);
 
         // do poprawki
-        return "jezyki";
+        return "wydzialy";
     }
 
     @RequestMapping("/delete/{id}")
