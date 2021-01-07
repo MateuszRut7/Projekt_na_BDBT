@@ -22,7 +22,7 @@ public class WydzialController{
 
 
     @RequestMapping("/")
-    public String pokazJezyki(Model model){
+    public String pokaz(Model model){
         List<Wydzial> ListaWydzialow = wydzialDAO.list();
         model.addAttribute("ListaWydzialow", ListaWydzialow );
         return "wydzialy";

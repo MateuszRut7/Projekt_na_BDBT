@@ -21,7 +21,7 @@ public class UczelniaController {
 
 
     @RequestMapping("/")
-    public String pokazUczelnie(Model model){
+    public String pokaz(Model model){
         List<Uczelnia> ListaUczelni = uczDAO.list();
         model.addAttribute("ListaUczelni", ListaUczelni );
         return "uczelnie";

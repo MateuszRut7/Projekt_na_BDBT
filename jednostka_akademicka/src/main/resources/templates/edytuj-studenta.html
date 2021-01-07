@@ -15,26 +15,72 @@
         <table border="0" cellpadding="10">
             <tr>
                 <td>ID:</td>
-                <td><input type="text" th:field="*{nrUczelni}" readonly="readonly" /></td>
+                <td><input type="text" th:field="*{nrStudenta}" readonly="readonly" /></td>
             </tr>
             <tr>
-                <td>Kod jezyka:</td>
-                <td><input type="text" th:field="*{nazwa}" /></td>
+                <td>Imie</td>
+                <td><input type="text" th:field="*{imie}"></td>
             </tr>
+            <!-- Second  row -->
             <tr>
-                <td>Nazwa:</td>
-                <td><input type="text" th:field="*{typUczelni}" /></td>
+                <td>Nazwisko</td>
+                <td><input type="text" th:field="*{nazwisko}"></td>
             </tr>
+            <!-- Third  row -->
             <tr>
-                <td>Rodzaj:</td>
-                <td><input type="text" th:field="*{rodzaj}" /></td>
+                <td>Pesel</td>
+                <td><input type="text" th:field="*{pesel}"></td>
             </tr>
+            <!-- Fourth  row -->
             <tr>
-                <td>Numer adresu:</td>
-                <td><input type="text" th:field="*{nrAdresu}" /></td>
+                <td>Numer indeksu</td>
+                <td><input type="text" th:field="*{nrIndeksu}"></td>
             </tr>
+
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <td>Plec</td>
+                <td><input type="text" th:field="*{plec}"></td>
+            </tr>
+
+            <tr>
+                <td>Data urodzenia</td>
+                <td><input type="text" th:field="*{dataUrodzenia}"></td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer telefonu</td>
+                <td><input type="text" th:field="*{nrTelefonu}"></td>
+            </tr>
+
+            <tr>
+                <td>Stopien studiow</td>
+                <td><input type="text" th:field="*{stopienStudiow}"></td>
+            </tr>
+
+            <tr>
+                <td>Kierunek studiow</td>
+                <td><input type="text" th:field="*{kierunekStudiow}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer uczelni</td>
+                <td><input type="text" th:field="*{nrUczelni}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer Adresu</td>
+                <td><input type="text" th:field="*{nrAdresu}"></td>
+            </tr>
+
+            <!-- Button save-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Save</button> </td>
             </tr>
         </table>
     </form>

@@ -22,7 +22,7 @@ public class JezykController{
 
 
     @RequestMapping("/")
-    public String pokazJezyki(Model model){
+    public String pokaz(Model model){
         List<Jezyk> ListaJezykow = jezykDAO.list();
         model.addAttribute("ListaJezykow", ListaJezykow );
         return "jezyki";

@@ -2,6 +2,7 @@ package bdbt.jednostka_akademicka.student;
 
 import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RequestMapping("/studenci")
+@Controller
 public class StudentController {
 
     @Autowired
@@ -19,7 +21,7 @@ public class StudentController {
 
 
     @RequestMapping("/")
-    public String pokazStudentow(Model model){
+    public String pokaz(Model model){
         List<Student> ListaStudentow = studentDAO.list();
         model.addAttribute("ListaStudentow", ListaStudentow );
         return "studenci";
@@ -29,8 +31,8 @@ public class StudentController {
 
     @RequestMapping("/nowy-student")
     public String showNewForm(Model model){
-        Student studenci = new Student();
-        model.addAttribute("studenci",studenci);
+        Student student = new Student();
+        model.addAttribute("student",student);
         return "nowy-student";
     }
 
@@ -43,7 +45,7 @@ public class StudentController {
 
     @RequestMapping("/edit/{nrStudenta}")
     public ModelAndView showEditForm(@PathVariable(name = "nrStudenta") int nrStudenta) {
-        ModelAndView mav = new ModelAndView("edytuj-uczelnie");
+        ModelAndView mav = new ModelAndView("edytuj-studenta");
         Student student = studentDAO.get(nrStudenta);
         mav.addObject("student", student);
 

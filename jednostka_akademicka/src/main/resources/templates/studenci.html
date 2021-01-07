@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Studenci</title>
 </head>
+
 <body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Studenci</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/studenci/nowy-student">Dodaj nowego studenta</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Pesel</th>
+            <th>Numer indeksu</th>
+            <th>Plec</th>
+            <th>Data urodzenia</th>
+            <th>Email</th>
+            <th>Numer telefonu</th>
+            <th>Stopien studiow</th>
+            <th>Kierunek studiow</th>
+            <th>Numer uczelni</th>
+            <th>Numer adresu</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "student: ${ListaStudentow}">
+            <td th:text="${student.nrStudenta}">ID</td>
+            <td th:text="${student.imie}">Imie</td>
+            <td th:text="${student.nazwisko}">Nazwisko</td>
+            <td th:text="${student.pesel}">Pesel</td>
+            <td th:text="${student.nrIndeksu}">Numer indeksu</td>
+            <td th:text="${student.plec}">Plec</td>
+            <td th:text="${student.dataUrodzenia}">Data urodzenia</td>
+            <td th:text="${student.email}">Email</td>
+            <td th:text="${student.nrTelefonu}">Numer telefonu</td>
+            <td th:text="${student.stopienStudiow}">Stopien studiow</td>
+            <td th:text="${student.kierunekStudiow}">Kierunek studiow</td>
+            <td th:text="${student.nrUczelni}">Numer uczelni</td>
+            <td th:text="${student.nrAdresu}">Numer adresu</td>
+            <td>
+                <a th:href="@{'/studenci/edit/' + ${student.nrStudenta}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/studenci/delete/' + ${student.nrStudenta}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
 
 </body>
 </html>
