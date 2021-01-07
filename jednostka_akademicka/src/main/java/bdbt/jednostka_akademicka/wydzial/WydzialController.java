@@ -40,7 +40,7 @@ public class WydzialController{
     public String save(@ModelAttribute("wydzial") Wydzial wydzial) {
         wydzialDAO.save(wydzial);
 
-        return "/nowy-wydzial";
+        return "redirect:/wydzialy/";
     }
 
     @RequestMapping("/edit/{nrWydzialu}")
@@ -57,13 +57,13 @@ public class WydzialController{
         wydzialDAO.update(wydzial);
 
         // do poprawki
-        return "wydzialy";
+        return "redirect:/wydzialy/";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable(name = "id") int id) {
         wydzialDAO.delete(id);
-        return "wydzialy";
+        return "redirect:/wydzialy/";
     }
 
 }

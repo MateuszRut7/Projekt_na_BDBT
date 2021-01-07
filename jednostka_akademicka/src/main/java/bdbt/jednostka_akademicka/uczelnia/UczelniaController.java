@@ -40,7 +40,7 @@ public class UczelniaController {
     public String save(@ModelAttribute("uczelnia") Uczelnia uczelnia) {
         uczDAO.save(uczelnia);
 
-        return "nowa-uczelnia";
+        return "redirect:/uczelnie/";
     }
 
     @RequestMapping("/edit/{nrUczelni}")
@@ -57,12 +57,12 @@ public class UczelniaController {
         uczDAO.update(uczelnia);
 
         // do poprawki
-        return "uczelnie";
+        return "redirect:/uczelnie/";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable(name = "id") int id) {
         uczDAO.delete(id);
-        return "uczelnie";
+        return "redirect:/uczelnie/";
     }
 }

@@ -45,8 +45,32 @@ public class StudentTest {
 
     @Test
     void testSave(){
-        Student student = new Student("Adam","Tak","00211204614","123","M", "01-jun-2000","tak","111111111","twoj","taaaaaak wadawe",16,1);
+        Student student = new Student("Adam","Tak","00211204614","123","M", "01-jun-2000","tak","111111111","twoj","taaa",16,1);
         dao.save(student);
+    }
+
+    @Test
+    void update()
+    {
+        Student student = new Student();
+        student.setImie("aaaa");
+        student.setNazwisko("taaak");
+        student.setPesel("00211704614");
+        student.setNrIndeksu("123");
+        student.setPlec("K");
+        student.setDataUrodzenia("01-jun-2000");
+        student.setEmail("000000");
+        student.setNrTelefonu("120312");
+        student.setStopienStudiow("erwerw");
+        student.setKierunekStudiow("efdewfwf");
+        student.setNrUczelni(18);
+        student.setNrAdresu(3);
+        dao.update(student);
+
+
+
+
+
     }
 
 

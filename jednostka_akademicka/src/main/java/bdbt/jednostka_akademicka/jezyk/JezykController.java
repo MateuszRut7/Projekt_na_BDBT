@@ -40,7 +40,7 @@ public class JezykController{
     public String save(@ModelAttribute("jezyk") Jezyk jezyk) {
         jezykDAO.save(jezyk);
 
-        return "/nowy-jezyk";
+        return "redirect:/jezyki/";
     }
 
     @RequestMapping("/edit/{nrJezyka}")
@@ -56,14 +56,13 @@ public class JezykController{
     public String update(@ModelAttribute("jezyk") Jezyk jezyk) {
         jezykDAO.update(jezyk);
 
-        // do poprawki
-        return "jezyki";
+        return "redirect:/jezyki/";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable(name = "id") int id) {
         jezykDAO.delete(id);
-        return "jezyki";
+        return "redirect:/jezyki/";
     }
 
 }

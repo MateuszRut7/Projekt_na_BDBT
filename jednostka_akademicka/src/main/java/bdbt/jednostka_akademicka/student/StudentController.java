@@ -40,7 +40,7 @@ public class StudentController {
     public String save(@ModelAttribute("student") Student student) {
         studentDAO.save(student);
 
-        return "nowy-student";
+        return "redirect:/studenci/";
     }
 
     @RequestMapping("/edit/{nrStudenta}")
@@ -55,14 +55,12 @@ public class StudentController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(@ModelAttribute("student") Student student) {
         studentDAO.update(student);
-
-        // do poprawki
-        return "studenci";
+        return "redirect:/studenci/";
     }
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable(name = "id") int id) {
         studentDAO.delete(id);
-        return "studenci";
+        return "redirect:/studenci/";
     }
 }
