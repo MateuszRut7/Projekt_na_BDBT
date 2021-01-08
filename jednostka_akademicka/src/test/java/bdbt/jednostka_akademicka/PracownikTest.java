@@ -33,14 +33,14 @@ public class PracownikTest {
     @Test
     void testList(){
         List<Pracownik> listaPracownikow = dao.list();
-        assertTrue(!listaPracownikow.isEmpty());
+        assertTrue(listaPracownikow.isEmpty());
     }
 
 
 
     @Test
     void testSave(){
-        Pracownik pracownik = new Pracownik("aaa","aaaa","01-jun-2000","K","00211204666","01-jun-2000","01-jun-2000","693289443","aaa",17,3,3,3);
+        Pracownik pracownik = new Pracownik("aaa","aaaa","01-jun-1990","K","00211204666","01-jun-2000","01-jun-2010","693289443","aaa",18,3,3,3);
         dao.save(pracownik);
     }
 
@@ -51,7 +51,7 @@ public class PracownikTest {
 
     @Test
     void testGet(){
-        dao.get(1);
+        dao.get(6);
     }
 
 
