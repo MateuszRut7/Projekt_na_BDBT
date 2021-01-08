@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pracownicy</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Pracownicy</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/pracownicy/nowy-pracownik">Dodaj nowego pracownika</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Plec</th>
+            <th>Pesel</th>
+            <th>Data zatrudnienia</th>
+            <th>Data zwolnienia</th>
+            <th>Numer telefonu</th>
+            <th>Email</th>
+            <th>Numer uczelni</th>
+            <th>Numer wydzialu</th>
+            <th>Numer adresu</th>
+            <th>Numer stanowiska</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "pracownik: ${ListaPracownikow}">
+            <td th:text="${pracownik.nrPracownika}">ID</td>
+            <td th:text="${pracownik.imie}">Imie</td>
+            <td th:text="${pracownik.nazwisko}">Nazwisko</td>
+            <td th:text="${pracownik.dataUrodzenia}">Data urodzenia</td>
+            <td th:text="${pracownik.plec}">Plec</td>
+            <td th:text="${pracownik.pesel}">Pesel</td>
+            <td th:text="${pracownik.dataZatrudnienia}">Data zatrudnienia</td>
+            <td th:text="${pracownik.dataZwolnienia}">Data zwolnienia</td>
+            <td th:text="${pracownik.nrTelefonu}">Numer telefonu</td>
+            <td th:text="${pracownik.email}">Email</td>
+            <td th:text="${pracownik.nrUczelni}">Numer uczelni</td>
+            <td th:text="${pracownik.nrWydzialu}">Numer wydzialu</td>
+            <td th:text="${pracownik.nrAdresu}">Numer adresu</td>
+            <td th:text="${pracownik.nrStanowiska}">Numer stanowiska</td>
+            <td>
+                <a th:href="@{'/pracownicy/edit/' + ${pracownik.nrPracownika}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/pracownicy/delete/' + ${pracownik.nrPracownika}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

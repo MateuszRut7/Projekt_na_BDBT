@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edytuj Pracownika</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edytuj Pracownika</h1>
+    <br />
+    <form action = "#" th:action="@{/pracownicy/save}" th:object="${pracownik}" method="post">
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <td>Imie</td>
+                <td><input type="text" th:field="*{imie}"></td>
+            </tr>
+            <!-- Second  row -->
+            <tr>
+                <td>Nazwisko</td>
+                <td><input type="text" th:field="*{nazwisko}"></td>
+            </tr>
+            <!-- Third  row -->
+
+            <tr>
+                <td>Data urodzenia</td>
+                <td><input type="text" th:field="*{dataUrodzenia}"></td>
+            </tr>
+            <!-- Fourth  row -->
+
+            <tr>
+                <td>Plec</td>
+                <td><input type="text" th:field="*{plec}"></td>
+            </tr>
+
+            <tr>
+                <td>Pesel</td>
+                <td><input type="text" th:field="*{pesel}"></td>
+            </tr>
+
+            <tr>
+                <td>Data zatrudnienia</td>
+                <td><input type="text" th:field="*{dataZwolnienia}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer telefonu</td>
+                <td><input type="text" th:field="*{nrTelefonu}"></td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer uczelni</td>
+                <td><input type="text" th:field="*{nrUczelni}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer wydzialu</td>
+                <td><input type="text" th:field="*{nrWydzialu}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer Adresu</td>
+                <td><input type="text" th:field="*{nrAdresu}"></td>
+            </tr>
+
+            <tr>
+                <td>Numer Stanowiska</td>
+                <td><input type="text" th:field="*{nrStanowiska}"></td>
+            </tr>
+
+            <!-- Button save-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
