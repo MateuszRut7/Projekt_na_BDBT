@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dziekanaty</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dziekanaty</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/dziekanaty/nowy-dziekanat">Dodaj nowe biuro dziakanatu</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="6">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>Nr biura dziekanatu</th>
+            <th>Pokoj</th>
+            <th>Numer telefonu</th>
+            <th>Sekcja</th>
+            <th>numer wydzialu</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "dziekanat: ${ListaDziekanatow}">
+            <td th:text="${dziekanat.nrBiuraDziekanatu}">Nr dziekanatu</td>
+            <td th:text="${dziekanat.pokoj}">Pokoj</td>
+            <td th:text="${dziekanat.sekcja}">Sekcja</td>
+            <td th:text="${dziekanat.nrTelefonu}">nr telefonu</td>
+            <td th:text="${dziekanat.nrWydzialu}">nr wydzialu</td>
+            <td>
+                <a th:href="@{'/dziekanaty/edit/' + ${dziekanat.nrBiuraDziekanatu}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/dziekanaty/delete/' + ${dziekanat.nrBiuraDziekanatu}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

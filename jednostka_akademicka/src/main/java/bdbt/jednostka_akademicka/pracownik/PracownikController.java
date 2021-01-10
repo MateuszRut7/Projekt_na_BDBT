@@ -32,8 +32,8 @@ public class PracownikController {
 
     @RequestMapping("/nowy-pracownik")
     public String showNewForm(Model model){
-        Pracownik pracownicy = new Pracownik();
-        model.addAttribute("pracownicy",pracownicy);
+        Pracownik pracownik = new Pracownik();
+        model.addAttribute("pracownik",pracownik);
         return "nowy-pracownik";
     }
 

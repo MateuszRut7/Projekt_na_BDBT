@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Edytuj Pracownika</title>
+    <title>Nowy Pracownika</title>
 </head>
 <body>
 <div align="center">
-    <h1>Edytuj Pracownika</h1>
+    <h1>Nowy Pracownika</h1>
     <br />
-    <form action = "#" th:action="@{/pracownicy/save}" th:object="${pracownik}" method="post">
+    <form action = "#" th:action="@{/studenci/save}" th:object="${pracownik}" method="post">
 
         <table border="1" cellpadding="10">
 

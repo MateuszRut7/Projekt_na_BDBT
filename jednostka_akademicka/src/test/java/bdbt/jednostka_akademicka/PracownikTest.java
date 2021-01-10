@@ -40,7 +40,7 @@ public class PracownikTest {
 
     @Test
     void testSave(){
-        Pracownik pracownik = new Pracownik("aaa","aaaa","01-jun-1990","K","00211204666","01-jun-2000","01-jun-2010","693289443","aaa",18,3,3,3);
+        Pracownik pracownik = new Pracownik("bbb","aaaa","01-jun-1990","K","00211204666","01-jun-2000","01-jun-2010","693289443","aaa",18,3,3,3);
         dao.save(pracownik);
     }
 
