@@ -21,6 +21,13 @@ public class DziekanatController{
     private DziekanatDAO dziekanatDAO;
 
 
+    @RequestMapping("/{nrBiuraDziekanatu}")
+    public String getById(@PathVariable(name = "nrBiuraDziekanatu") int nrBiuraDziekanatu, Model model){
+        Dziekanat dziekanat =  dziekanatDAO.get(nrBiuraDziekanatu);
+        model.addAttribute("ListaDziekanatow", dziekanat );
+        return "dziekanaty";
+    }
+
     @RequestMapping("/")
     public String pokaz(Model model){
         List<Dziekanat> ListaDziekanatow = dziekanatDAO.list();

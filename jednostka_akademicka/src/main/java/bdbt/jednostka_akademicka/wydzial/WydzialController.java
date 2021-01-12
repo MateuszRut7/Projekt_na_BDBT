@@ -1,5 +1,6 @@
 package bdbt.jednostka_akademicka.wydzial;
 
+import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,13 @@ public class WydzialController{
         model.addAttribute("ListaWydzialow", ListaWydzialow );
         return "wydzialy";
 
+    }
+
+    @RequestMapping("/{id}")
+    public String getById(@PathVariable(name = "id") int id, Model model){
+        Wydzial wydzial =  wydzialDAO.get(id);
+        model.addAttribute("ListaWydzialow", wydzial );
+        return "wydzialy";
     }
 
     @RequestMapping("/nowy-wydzial")

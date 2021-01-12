@@ -1,6 +1,7 @@
 package bdbt.jednostka_akademicka.uczelnia;
 
 
+import bdbt.jednostka_akademicka.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +27,13 @@ public class UczelniaController {
         model.addAttribute("ListaUczelni", ListaUczelni );
         return "uczelnie";
 
+    }
+
+    @RequestMapping("/{id}")
+    public String getById(@PathVariable(name = "id") int id, Model model){
+        Uczelnia uczelnia =  uczDAO.get(id);
+        model.addAttribute("ListaUczelni", uczelnia );
+        return "uczelnie";
     }
 
 

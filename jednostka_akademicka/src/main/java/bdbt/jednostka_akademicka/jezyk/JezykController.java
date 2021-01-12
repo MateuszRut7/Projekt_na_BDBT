@@ -1,5 +1,6 @@
 package bdbt.jednostka_akademicka.jezyk;
 
+import bdbt.jednostka_akademicka.dziekanat.Dziekanat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,13 @@ public class JezykController{
         model.addAttribute("ListaJezykow", ListaJezykow );
         return "jezyki";
 
+    }
+
+    @RequestMapping("/{id}")
+    public String getById(@PathVariable(name = "id") int id, Model model){
+        Jezyk jezyk =  jezykDAO.get(id);
+        model.addAttribute("ListaJezykow", jezyk );
+        return "jezyki";
     }
 
     @RequestMapping("/nowy-jezyk")

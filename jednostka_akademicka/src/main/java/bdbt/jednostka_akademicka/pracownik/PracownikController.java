@@ -2,6 +2,7 @@ package bdbt.jednostka_akademicka.pracownik
         ;
 
 
+import bdbt.jednostka_akademicka.jezyk.Jezyk;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +28,13 @@ public class PracownikController {
         model.addAttribute("ListaPracownikow", ListaPracownikow );
         return "pracownicy";
 
+    }
+
+    @RequestMapping("/{id}")
+    public String getById(@PathVariable(name = "id") int id, Model model){
+        Pracownik pracownik =  pracownikDAO.get(id);
+        model.addAttribute("ListaPracownikow", pracownik );
+        return "pracownicy";
     }
 
 
