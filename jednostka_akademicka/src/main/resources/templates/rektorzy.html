@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rektorzy</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Rektorzy</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/rektorzy/nowy-rektor">Dodaj nowego rektora </a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="6">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>Nr Rektora</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>numer uczelni</th>
+            <th>numer adresu</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "rektor: ${ListaRektorow}">
+            <td th:text="${rektor.nrRektora}">Nr rektora</td>
+            <td th:text="${rektor.imie}">Imie</td>
+            <td th:text="${rektor.nazwisko}">Nazwisko</td>
+            <td th:text="${rektor.dataUrodzenia}">data urodzenia</td>
+            <td th:text="${rektor.nrUczelni}">nr uczelni</td>
+            <td th:text="${rektor.nrAdresu}">nr adresu</td>
+            <td>
+                <a th:href="@{'/rektorzy/edit/' + ${rektor.nrRektora}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/rektorzy/delete/' + ${rektor.nrRektora}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

@@ -40,7 +40,7 @@ public class DziekanatTest {
 
     @Test
     void testSave(){
-        Dziekanat dziekanat = new Dziekanat(302,"693289444","Sekcja od spraw ciebie",3);
+        Dziekanat dziekanat = new Dziekanat(1,302,"693289444","Sekcja od spraw ciebie",3);
         dao.save(dziekanat);
     }
 

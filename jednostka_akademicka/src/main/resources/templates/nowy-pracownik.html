@@ -8,7 +8,7 @@
 <div align="center">
     <h1>Nowy Pracownika</h1>
     <br />
-    <form action = "#" th:action="@{/studenci/save}" th:object="${pracownik}" method="post">
+    <form action = "#" th:action="@{/pracownicy/save}" th:object="${pracownik}" method="post">
 
         <table border="1" cellpadding="10">
 
@@ -41,6 +41,11 @@
 
             <tr>
                 <td>Data zatrudnienia</td>
+                <td><input type="text" th:field="*{dataZatrudnienia}"></td>
+            </tr>
+
+            <tr>
+                <td>Data zwolnienia</td>
                 <td><input type="text" th:field="*{dataZwolnienia}"></td>
             </tr>
 

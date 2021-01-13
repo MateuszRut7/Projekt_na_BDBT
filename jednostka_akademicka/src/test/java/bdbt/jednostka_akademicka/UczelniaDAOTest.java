@@ -52,7 +52,7 @@ public class UczelniaDAOTest {
 
     @Test
     void testSave2(){
-        Jezyk jezyk = new Jezyk("0","Jezyk");
+        Jezyk jezyk = new Jezyk(1,"0","Jezyk");
         dao2.save(jezyk);
     }
 
