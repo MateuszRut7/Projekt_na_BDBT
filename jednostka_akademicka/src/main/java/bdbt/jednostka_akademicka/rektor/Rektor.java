@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Rektor {
     private int nrRektora;
-    private String Imie;
-    private String Nazwisko;
-    private String DataUrodzenia;
+    private String imie;
+    private String nazwisko;
+    private String dataUrodzenia;
     private int nrUczelni;
     private int nrAdresu;
 

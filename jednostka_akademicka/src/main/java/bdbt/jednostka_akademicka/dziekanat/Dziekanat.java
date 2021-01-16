@@ -15,4 +15,5 @@ public class Dziekanat {
     private int nrWydzialu;
 
 
+
 }

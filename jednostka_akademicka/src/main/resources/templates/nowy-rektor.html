@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nowy rektor</title>
 </head>
+
 <body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nowego rektora</h1>
+
+    <!-- End line/ new line -->
+    <br />
+
+    <form action = "#" th:action="@{/rektorzy/save}" th:object="${rektor}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table first  row -->
+            <tr>
+                <td>Imie</td>
+                <td><input type="text" th:field="*{imie}"></td>
+            </tr>
+            <!-- Second  row -->
+            <tr>
+                <td>nazwisko</td>
+                <td><input type="text" th:field="*{nazwisko}"></td>
+            </tr>
+            <!-- Third  row -->
+            <tr>
+                <td>data urodzenia</td>
+                <td><input type="text" th:field="*{dataUrodzenia}"></td>
+            </tr>
+            <!-- Fourth  row -->
+            <tr>
+                <td>nr uczelni</td>
+                <td><input type="text" th:field="*{nrUczelni}"></td>
+            </tr>
+
+            <tr>
+                <td>nr Adresu</td>
+                <td><input type="text" th:field="*{nrAdresu}"></td>
+            </tr>
+
+            <!-- Button save-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Save</button> </td>
+            </tr>
+            <!-- Table body -->
+
+        </table>
+    </form>
+</div>
 
 </body>
 </html>
