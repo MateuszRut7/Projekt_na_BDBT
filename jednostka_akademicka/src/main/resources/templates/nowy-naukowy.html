@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy pracownik naukowo dydaktyczny</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Dodaj nowego pracownika naukowo dydaktycznego</h1>
+
+    <!-- End line/ new line -->
+    <br />
+
+    <form action = "#" th:action="@{/naukowi/save}" th:object="${naukowy}" method="post">
+        <!-- Table -->
+        <table border="1" cellpadding="10">
+
+            <!-- Table first  row -->
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{nrPracownika}"  /></td>
+            </tr>
+            <tr>
+                <td>tytul naukowy</td>
+                <td><input type="text" th:field="*{tytulNaukowy}"></td>
+            </tr>
+            <!-- Second  row -->
+            <tr>
+                <td>OKNO</td>
+                <td><input type="text" th:field="*{OKNO}"></td>
+            </tr>
+
+            <!-- Button save-->
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Save</button> </td>
+            </tr>
+            <!-- Table body -->
+
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

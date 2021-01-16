@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edytuj pracownika naukowo dydaktycznego</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edytuj pracownika naukowo dydaktycznego</h1>
+    <br />
+    <form action="#" th:action="@{/naukowi/update}" th:object="${naukowy}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{nrPracownika}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>tytul naukowy:</td>
+                <td><input type="text" th:field="*{tytulNaukowy}" /></td>
+            </tr>
+            <tr>
+                <td>OKNO:</td>
+                <td><input type="text" th:field="*{OKNO}" /></td>
+            </tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
