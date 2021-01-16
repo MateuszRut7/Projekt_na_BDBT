@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Przedmioty</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Przedmioty</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/przedmioty/nowy-przedmiot">Dodaj nowy przedmiot</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="6">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>Nr przedmiotu</th>
+            <th>Nazwa</th>
+            <th>Liczba godzin</th>
+            <th>ECTS</th>
+            <th>numer pracownika</th>
+            <th>numer instytutu</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "przedmiot: ${ListaPrzedmiotow}">
+            <td th:text="${przedmiot.nrPrzedmiotu}">Nr przedmiotu</td>
+            <td th:text="${przedmiot.nazwa}">Nazwa</td>
+            <td th:text="${przedmiot.liczbaGodzin}">Liczba godzin</td>
+            <td th:text="${przedmiot.ECTS}">ECTS</td>
+            <td th:text="${przedmiot.nrPracownika}">Nr pracownika</td>
+            <td th:text="${przedmiot.nrInstytutu}">Nr instytutu</td>
+            <td>
+                <a th:href="@{'/przedmioty/edit/' + ${przedmiot.nrPrzedmiotu}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/przedmioty/delete/' + ${przedmiot.nrPrzedmiotu}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
