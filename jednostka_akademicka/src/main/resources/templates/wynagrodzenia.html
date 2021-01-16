@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wynagrodzenia</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Wynagrodzenia</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/wynagrodzenia/nowe-wynagrodzenie">Dodaj nowe wynagrodzenie</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data wynagrodzenia</th>
+            <th>Kwota podstawowa</th>
+            <th>Kwota dodatkowa</th>
+            <th>Nr pracownika</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "wynagrodzenie: ${ListaWynagrodzen}">
+            <td th:text="${wynagrodzenie.nrWynagrodzenia}">ID</td>
+            <td th:text="${wynagrodzenie.dataWynagrodzenia}">Data wynagrodzenia</td>
+            <td th:text="${wynagrodzenie.getKwotaPod}">Kwota podstawowa</td>
+            <td th:text="${wynagrodzenie.kwotaDod}">Kwota dodatkowa</td>
+            <td th:text="${wynagrodzenie.nrPracownika}">Nr pracownika</td>
+            <td>
+                <a th:href="@{'/wynagrodzenia/edit/' + ${wynagrodzenie.nrWynagrodzenia}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/wynagrodzenia/delete/' + ${wynagrodzenie.nrWynagrodzenia}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
