@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edytuj pracownika administracyjnego</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edytuj pracownika administracyjnego</h1>
+    <br />
+    <form action="#" th:action="@{/administracyjni/update}" th:object="${administracyjny}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>ID:</td>
+                <td><input type="text" th:field="*{nrPracownika}" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td>MS OFFICE:</td>
+                <td><input type="text" th:field="*{msOffice}" /></td>
+            </tr>
+            <tr>
+                <td>numer biura dziekanatu:</td>
+                <td><input type="text" th:field="*{nrBiuraDziekanatu}" /></td>
+            </tr>
+            <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>

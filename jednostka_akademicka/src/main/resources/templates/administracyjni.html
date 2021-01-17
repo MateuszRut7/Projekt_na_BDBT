@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administracyjni</title>
+</head>
+
+<body>
+<div align="center">
+    <!-- Page header -->
+    <h1>Administracyjni</h1>
+
+    <!-- Enter to a new page -->
+    <a href = "/administracyjni/nowy-administracyjny">Dodaj nowego pracownika administracyjnego</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="6">
+
+        <!-- Table head -->
+        <thead>
+        <tr>
+            <th>Nr pracownika</th>
+            <th>MS_OFFICE</th>
+            <th>Nr biura dziekanatu</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+
+        <!-- Table body -->
+        <tbody>
+        <tr th:each = "administracyjny: ${ListaAdministracyjnych}">
+            <td th:text="${administracyjny.nrPracownika}">Nr pracownika</td>
+            <td th:text="${administracyjny.msOffice}">Czy pracownik zna MS OFFICE</td>
+            <td th:text="${administracyjny.nrBiuraDziekanatu}">Nr biura dziekanatu</td>
+            <td>
+                <a th:href="@{'/administracyjni/edit/' + ${administracyjny.nrPracownika}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/administracyjni/delete/' + ${administracyjny.nrPracownika}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

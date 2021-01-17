@@ -30,9 +30,9 @@
         <!-- Table body -->
         <tbody>
         <tr th:each = "naukowy: ${ListaNaukowych}">
-            <td th:text="${naukowy.nrPracownika}">Nr dziekanatu</td>
-            <td th:text="${naukowy.tytulNaukowy}">Pokoj</td>
-            <td th:text="${naukowy.OKNO}">Sekcja</td>
+            <td th:text="${naukowy.nrPracownika}">Nr pracownika</td>
+            <td th:text="${naukowy.tytulNaukowy}">tytul naukowy</td>
+            <td th:text="${naukowy.OKNO}">OKNO</td>
             <td>
                 <a th:href="@{'/naukowi/edit/' + ${naukowy.nrPracownika}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
