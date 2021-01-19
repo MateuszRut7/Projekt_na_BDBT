@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/studenci")
@@ -44,15 +45,15 @@ public class StudentController {
         return "nowy-student";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("student") Student student) {
+    @RequestMapping( value = "/save", method = RequestMethod.POST)
+    public String save(@Valid @ModelAttribute("student") Student student) {
         studentDAO.save(student);
 
         return "redirect:/studenci/";
     }
 
     @RequestMapping("/edit/{nrStudenta}")
-    public ModelAndView showEditForm(@PathVariable(name = "nrStudenta") int nrStudenta) {
+    public ModelAndView showEditForm( @PathVariable(name = "nrStudenta") int nrStudenta) {
         ModelAndView mav = new ModelAndView("edytuj-studenta");
         Student student = studentDAO.get(nrStudenta);
         mav.addObject("student", student);
@@ -61,7 +62,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(@ModelAttribute("student") Student student) {
+    public String update(@Valid @ModelAttribute("student") Student student) {
         studentDAO.update(student);
         return "redirect:/studenci/";
     }
