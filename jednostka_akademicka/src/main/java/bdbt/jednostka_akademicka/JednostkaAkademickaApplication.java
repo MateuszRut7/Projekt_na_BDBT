@@ -3,6 +3,7 @@ package bdbt.jednostka_akademicka;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.validation.Validator;
@@ -15,3 +16,4 @@ public class JednostkaAkademickaApplication {
     }
 
 }
+
