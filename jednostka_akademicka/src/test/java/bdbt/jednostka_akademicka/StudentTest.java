@@ -12,9 +12,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.validation.constraints.Pattern;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Matcher;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -66,15 +68,7 @@ public class StudentTest {
         student.setNrUczelni(18);
         student.setNrAdresu(3);
         dao.update(student);
-
-
-
-
-
     }
-
-
-
 
 
 

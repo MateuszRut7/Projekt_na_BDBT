@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -46,7 +47,7 @@ public class PracownikController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("pracownik") Pracownik pracownik) {
+    public String save(@ModelAttribute("pracownik") @Valid Pracownik pracownik) {
         pracownikDAO.save(pracownik);
 
         return "redirect:/pracownicy/";
@@ -62,7 +63,7 @@ public class PracownikController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(@ModelAttribute("pracownik") Pracownik pracownik) {
+    public String update(@ModelAttribute("pracownik") @Valid Pracownik pracownik) {
         pracownikDAO.update(pracownik);
 
         return "redirect:/pracownicy/";

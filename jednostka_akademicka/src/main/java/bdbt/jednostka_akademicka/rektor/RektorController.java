@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -45,7 +46,7 @@ public class RektorController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("rektor") Rektor rektor) {
+    public String save(@ModelAttribute("rektor") @Valid Rektor rektor) {
         rektorDAO.save(rektor);
 
         return "redirect:/rektorzy/";
@@ -61,7 +62,7 @@ public class RektorController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(@ModelAttribute("rektor") Rektor rektor) {
+    public String update(@ModelAttribute("rektor") @Valid Rektor rektor) {
         rektorDAO.update(rektor);
 
         return "redirect:/rektorzy/";
