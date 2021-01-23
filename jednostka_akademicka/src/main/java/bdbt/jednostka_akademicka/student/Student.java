@@ -27,5 +27,6 @@ public class Student {
     private String kierunekStudiow;
     private int nrUczelni;
     private int nrAdresu;
+    private int nrUzytkownika;
 
 }

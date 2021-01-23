@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UzytkownikRepo extends JpaRepository<Uzytkownik, In> {
+public interface UzytkownikRepo extends JpaRepository<Uzytkownik, Integer> {
 
     Optional<Uzytkownik> findByLogin(String login);
 }

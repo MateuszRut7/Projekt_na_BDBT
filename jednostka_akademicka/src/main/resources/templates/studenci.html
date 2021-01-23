@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Studenci</title>
+    <link th:href="@{/css/style-sing-up.css}"    rel="stylesheet"  type="text/css" />
 </head>
 
 <body>
@@ -33,6 +34,7 @@
             <th>Kierunek studiow</th>
             <th>Numer uczelni</th>
             <th>Numer adresu</th>
+            <th>Numer uzytkownika</th>
             <th>Akcje</th>
         </tr>
         </thead>
@@ -53,6 +55,7 @@
             <td th:text="${student.kierunekStudiow}">Kierunek studiow</td>
             <td th:text="${student.nrUczelni}">Numer uczelni</td>
             <td th:text="${student.nrAdresu}">Numer adresu</td>
+            <td th:text="${student.nrUzytkownika}">Numer uzytkownika</td>
             <td>
                 <a th:href="@{'/studenci/edit/' + ${student.nrStudenta}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;

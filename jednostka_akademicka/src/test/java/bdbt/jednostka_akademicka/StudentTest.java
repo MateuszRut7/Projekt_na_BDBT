@@ -47,7 +47,7 @@ public class StudentTest {
 
     @Test
     void testSave(){
-        Student student = new Student(1,"Adam","Nie","00211204614","123","M", "01-11-2000","tak","111118111","twoj","taaa",16,1);
+        Student student = new Student(1,"Adam","Nie","00211204614","123","M", "01-11-2000","tak","111118111","twoj","taaa",16,1,2);
         dao.save(student);
     }
 

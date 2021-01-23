@@ -20,6 +20,7 @@ import java.util.Collections;
 public class Uzytkownik implements UserDetails {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nr_uzytkownika;
 
     private String login;

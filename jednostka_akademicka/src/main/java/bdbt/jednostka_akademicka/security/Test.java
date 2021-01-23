@@ -9,7 +9,7 @@ public class Test {
     public Test(UzytkownikRepo uzytkownikRepo, PasswordEncoder passwordEncoder) {
 
         Uzytkownik uzytkownik = new Uzytkownik();
-        uzytkownik.setNr_uzytkownika(5);
+        uzytkownik.setNr_uzytkownika(156);
         uzytkownik.setLogin("niee");
         uzytkownik.setHaslo(passwordEncoder.encode("1234"));
         uzytkownik.setRola("ROLE_ADMIN");

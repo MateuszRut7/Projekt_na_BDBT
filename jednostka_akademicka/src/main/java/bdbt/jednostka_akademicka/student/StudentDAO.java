@@ -35,7 +35,7 @@ public class StudentDAO {
 
     public void save(Student student){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("studenci").usingColumns("Imie","Nazwisko","PESEL","Nr_indeksu","Plec","Data_urodzenia","Email","Nr_telefonu","Stopien_studiow","Kierunek_studiow","Nr_uczelni","Nr_adresu");
+        insertActor.withTableName("studenci").usingColumns("Imie","Nazwisko","PESEL","Nr_indeksu","Plec","Data_urodzenia","Email","Nr_telefonu","Stopien_studiow","Kierunek_studiow","Nr_uczelni","Nr_adresu","nr_uzytkownika");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(student);
         insertActor.execute(param);
@@ -52,7 +52,7 @@ public class StudentDAO {
 
 
     public void update(Student student) {
-        String sql = "UPDATE STUDENCI SET IMIE=:imie,NAZWISKO=:nazwisko,PESEL=:pesel,NR_INDEKSU=:nrIndeksu,PLEC=:plec,DATA_URODZENIA=:dataUrodzenia,EMAIL=:email,NR_TELEFONU=:nrTelefonu,STOPIEN_STUDIOW=:stopienStudiow,KIERUNEK_STUDIOW=:kierunekStudiow,NR_UCZELNI=:nrUczelni, NR_ADRESU=:nrAdresu WHERE NR_STUDENTA=:nrStudenta";
+        String sql = "UPDATE STUDENCI SET IMIE=:imie,NAZWISKO=:nazwisko,PESEL=:pesel,NR_INDEKSU=:nrIndeksu,PLEC=:plec,DATA_URODZENIA=:dataUrodzenia,EMAIL=:email,NR_TELEFONU=:nrTelefonu,STOPIEN_STUDIOW=:stopienStudiow,KIERUNEK_STUDIOW=:kierunekStudiow,NR_UCZELNI=:nrUczelni, NR_ADRESU=:nrAdresu,NR_UZYTKOWNIKA=:nrUzytkownika WHERE NR_STUDENTA=:nrStudenta";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(student);
 
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
