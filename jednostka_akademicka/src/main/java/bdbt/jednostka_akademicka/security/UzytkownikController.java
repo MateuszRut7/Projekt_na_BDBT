@@ -1,16 +1,13 @@
 package bdbt.jednostka_akademicka.security;
 
-import bdbt.jednostka_akademicka.uczelnia.Uczelnia;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UzytkownikController {
@@ -29,6 +26,22 @@ public class UzytkownikController {
         return "uzytkownicy";
 
     }
+
+    @RequestMapping("/{id}")
+    public String getById( @PathVariable(name = "id") int id, Model model){
+       Optional<Uzytkownik> uzytkownik =  uzytkownikService.findById(id);
+        model.addAttribute("ListaUzytkownikow", uzytkownik );
+        return "uzytkownicy";
+    }
+
+    /*
+    @GetMapping("/uzytkownicy/{nr_uzytkownika}")
+    ResponseEntity<Uzytkownik> readTask(@PathVariable int nr_uzytkownika) {
+        return repository.findById(nr_uzytkownika)
+                .map(task -> ResponseEntity.ok(task)) // This can be written as .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+     */
 
     @GetMapping("/sing-up")
     public String singUp(Model model){

@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface UzytkownikRepo extends JpaRepository<Uzytkownik, Integer> {
 
     Optional<Uzytkownik> findByLogin(String login);
+
 }
