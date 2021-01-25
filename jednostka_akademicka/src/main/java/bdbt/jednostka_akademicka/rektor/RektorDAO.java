@@ -35,7 +35,7 @@ public class RektorDAO {
 
     public void save(Rektor rektor){
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("rektorzy").usingColumns("Imie","Nazwisko","Data_urodzenia","Nr_uczelni","Nr_adresu");
+        insertActor.withTableName("rektorzy").usingColumns("Imie","Nazwisko","Data_urodzenia","Nr_uczelni","Nr_adresu","Nr_uzytkownika");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(rektor);
         insertActor.execute(param);
     }
@@ -52,7 +52,7 @@ public class RektorDAO {
 
 
     public void update(Rektor rektor) {
-        String sql = "UPDATE REKTORZY SET IMIE=:imie, NAZWISKO=:nazwisko,DATA_URODZENIA=:dataUrodzenia,NR_UCZELNI=:nrUczelni,NR_ADRESU=:nrAdresu WHERE NR_REKTORA=:nrRektora";
+        String sql = "UPDATE REKTORZY SET IMIE=:imie, NAZWISKO=:nazwisko,DATA_URODZENIA=:dataUrodzenia,NR_UCZELNI=:nrUczelni,NR_ADRESU=:nrAdresu,NR_UZYTKOWNIKA=:nrUzytkownika WHERE NR_REKTORA=:nrRektora";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(rektor);
 
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);

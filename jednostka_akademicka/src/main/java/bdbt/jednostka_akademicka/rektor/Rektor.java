@@ -19,6 +19,7 @@ public class Rektor {
 
     private int nrUczelni;
     private int nrAdresu;
+    private int nrUzytkownika;
 
 
 }

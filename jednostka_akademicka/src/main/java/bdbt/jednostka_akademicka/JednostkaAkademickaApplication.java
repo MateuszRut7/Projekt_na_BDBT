@@ -15,5 +15,10 @@ public class JednostkaAkademickaApplication {
         SpringApplication.run(JednostkaAkademickaApplication.class, args);
     }
 
+    @Bean
+    Validator validator() {
+
+        return new LocalValidatorFactoryBean();
+    }
 }
 

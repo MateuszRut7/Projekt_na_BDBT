@@ -26,6 +26,7 @@
             <th>Data urodzenia</th>
             <th>numer uczelni</th>
             <th>numer adresu</th>
+            <th>numer uzytkownika</th>
             <th>Akcje</th>
         </tr>
         </thead>
@@ -39,10 +40,11 @@
             <td th:text="${rektor.dataUrodzenia}">data urodzenia</td>
             <td th:text="${rektor.nrUczelni}">nr uczelni</td>
             <td th:text="${rektor.nrAdresu}">nr adresu</td>
+            <td th:text="${rektor.nrUzytkownika}">nr uzytkownika</td>
             <td>
                 <a th:href="@{'/rektorzy/edit/' + ${rektor.nrRektora}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/rektorzy/delete/' + ${rektor.nrRektora}}">Delete</a>
+                <a th:href="@{'/rektorzy/delete/' + ${rektor.nrUzytkownika}}">Delete</a>
             </td>
         </tr>
         </tbody>

@@ -49,6 +49,14 @@ public class StudentDAO {
         return student;
     }
 
+    public Student getByUzytkownik(int nrUzytkownika) {
+        String sql = "SELECT * FROM STUDENCI WHERE NR_UZYTKOWNIKA = ?";
+        Object[] args = {nrUzytkownika};
+        Student student = jdbcTemplate.queryForObject(sql, args,
+                BeanPropertyRowMapper.newInstance(Student.class));
+        return student;
+    }
+
 
 
     public void update(Student student) {

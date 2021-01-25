@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UzytkownikService implements IUzytkownikService {
+public class UzytkownikService {
     private UzytkownikRepo uzytkownikRepo;
     private PasswordEncoder passwordEncoder;
 
@@ -26,8 +26,4 @@ public class UzytkownikService implements IUzytkownikService {
         uzytkownikRepo.save(uzytkownik);
     }
 
-    @Override
-    public Optional<Uzytkownik> findById(Integer nr_uzytkownika) {
-        return uzytkownikRepo.findById(nr_uzytkownika);
-    }
 }

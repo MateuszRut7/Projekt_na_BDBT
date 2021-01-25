@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -22,7 +23,9 @@ public class Uzytkownik implements UserDetails {
     @Id
     private int nr_uzytkownika;
 
+    @NotBlank()
     private String login;
+    @NotBlank()
     private String haslo;
     private String rola;
 

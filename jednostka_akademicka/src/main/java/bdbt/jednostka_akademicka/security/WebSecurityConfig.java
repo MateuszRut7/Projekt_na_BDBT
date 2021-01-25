@@ -34,8 +34,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().disable();
         http.authorizeRequests()
-                .antMatchers("/uczelnie/").hasRole("ADMIN")
+                .antMatchers("/sing-up").hasRole("ADMIN")
+                .antMatchers("/uzytkownicy/").hasRole("ADMIN")
+                .antMatchers("/uczelnie/edit/{nrUczelni}").hasRole("ADMIN")
+                .antMatchers("/uczelnie/nowa-uczelnia").hasRole("ADMIN")
+                .antMatchers("/uczelnie/delete/{id}").hasRole("ADMIN")
+                .antMatchers("/rektorzy/edit/{nrRektora}").hasRole("ADMIN")
+                .antMatchers("/rektorzy/nowy-rektor").hasRole("ADMIN")
+                .antMatchers("/rektorzy/delete/{id}").hasRole("ADMIN")
+
+                .antMatchers("/studenci/student/{id}").hasRole("STUDENT")
                 .and()
-                .formLogin().defaultSuccessUrl("/uczelnie/");
+                .formLogin().permitAll()
+                .and()
+                .logout().permitAll();
     }
 }

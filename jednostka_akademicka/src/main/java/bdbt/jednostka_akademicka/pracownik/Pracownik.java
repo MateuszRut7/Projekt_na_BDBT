@@ -30,5 +30,6 @@ public class Pracownik {
     private int nrWydzialu;
     private int nrAdresu;
     private int nrStanowiska;
+    private int nrUzytkownika;
 
 }

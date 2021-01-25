@@ -12,6 +12,7 @@ import java.util.Optional;
 @Controller
 public class UzytkownikController {
     private UzytkownikService uzytkownikService;
+    private UzytkownikRepo repository;
 
     public UzytkownikController(UzytkownikService uzytkownikService) {
         this.uzytkownikService = uzytkownikService;
@@ -27,21 +28,13 @@ public class UzytkownikController {
 
     }
 
-    @RequestMapping("/{id}")
-    public String getById( @PathVariable(name = "id") int id, Model model){
-       Optional<Uzytkownik> uzytkownik =  uzytkownikService.findById(id);
-        model.addAttribute("ListaUzytkownikow", uzytkownik );
-        return "uzytkownicy";
-    }
-
-    /*
     @GetMapping("/uzytkownicy/{nr_uzytkownika}")
-    ResponseEntity<Uzytkownik> readTask(@PathVariable int nr_uzytkownika) {
+    ResponseEntity<Uzytkownik> readTask(@PathVariable int nr_uzytkownika){
         return repository.findById(nr_uzytkownika)
-                .map(task -> ResponseEntity.ok(task)) // This can be written as .map(ResponseEntity::ok)
+                .map(uzytkownik -> ResponseEntity.ok(uzytkownik))
                 .orElse(ResponseEntity.notFound().build());
     }
-     */
+
 
     @GetMapping("/sing-up")
     public String singUp(Model model){
@@ -57,4 +50,5 @@ public class UzytkownikController {
         uzytkownikService.addUzytkownik(uzytkownik);
         return "rejestracja";
     }
+
 }

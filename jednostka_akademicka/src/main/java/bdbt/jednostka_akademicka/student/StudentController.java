@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/studenci")
@@ -30,9 +31,16 @@ public class StudentController {
 
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("/student/{id}")
     public String getById(@PathVariable(name = "id") int id,  Model model){
         Student student =  studentDAO.get(id);
+        model.addAttribute("ListaStudentow", student );
+        return "studenci";
+    }
+
+    @RequestMapping("/uzytkownik/{id}")
+    public String getByUzytkownik(@PathVariable(name = "id") int id,  Model model){
+        Student student =  studentDAO.getByUzytkownik(id);
         model.addAttribute("ListaStudentow", student );
         return "studenci";
     }
