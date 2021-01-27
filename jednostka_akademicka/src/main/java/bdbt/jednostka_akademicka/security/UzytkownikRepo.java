@@ -13,9 +13,6 @@ public interface UzytkownikRepo extends JpaRepository<Uzytkownik, Integer> {
 
     List<Uzytkownik> findAll();
 
-    Optional<Uzytkownik> findById(Integer nr_uzytkownika);
-
-    boolean existsById(Integer nr_uzytkownika);
 
     Optional<Uzytkownik> findByLogin(String login);
 
